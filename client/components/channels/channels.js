@@ -1,4 +1,4 @@
-import {name} from "/imports/chat/client/module";
+import {name} from "../../module";
 import templateUrl from "./channels.html";
 import { Channels } from "../../../lib/channels/collection";
 import { all } from "../../../lib/channels/selectors";
