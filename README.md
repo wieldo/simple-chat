@@ -1,9 +1,10 @@
 # simpleChat
-Simple Chat for Meteor
-
-It is not working right now, please, wait for next commit.
 
 [![Gitter join](https://img.shields.io/gitter/room/nwjs/nw.js.svg)](https://gitter.im/wieldo/simple-meteor-chat)
+
+Simple Chat for Meteor
+It is not working right now, please, wait for next commit.
+
 
 
 ## Donate
