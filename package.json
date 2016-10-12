@@ -1,6 +1,6 @@
 {
   "name": "simpleChat",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "simple Chat for meteor",
   "author": "Wieldo <office@ster-project.com>",
   "contributors": [
@@ -10,6 +10,9 @@
     "presets": [
       "es2015"
     ]
+  },
+  "eslintConfig" : {
+    "parser": "babel-eslint"
   },
   "main": "",
   "repository": {
@@ -56,8 +59,9 @@
   },
   "homepage": "https://github.com/wieldo/simpleChat/blob/master/README.md",
   "keywords": [
-    "simple Chat",
+    "chat",
+    "simple-chat",
     "meteor",
-    "Chat"
+    "wieldo"
   ]
 }
