@@ -1,21 +1,21 @@
-import {name} from '/imports/chat/client/module';
-import moment from 'moment';
-import {init,SetModule, Component} from 'angular2-now';
+import {name} from "../../module";
+import moment from "moment";
+import {init,SetModule, Component} from "angular2-now";
 
 init();
 SetModule(name);
 @Component({
-    selector: 'chat-messages-limit',
+    selector: "chat-messages-limit",
     template: `
       <md-button ng-click="vm.loadMore()">
         Load more (then since {{vm.limit | date}})
       </md-button>
     `,
     bind: {
-        start: '@',
-        increaseLimit: '@',
-        increaseType: '@',
-        onChange: '&'
+        start: "@",
+        increaseLimit: "@",
+        increaseType: "@",
+        onChange: "&"
     }
 })
 export class ChatMessagesLimitComponent {

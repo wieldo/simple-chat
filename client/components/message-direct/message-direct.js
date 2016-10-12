@@ -1,16 +1,16 @@
-import {name} from '/imports/chat/client/module';
-import templateUrl from './message-direct.html';
-import {init, SetModule, Component, MeteorReactive} from 'angular2-now';
+import {name} from "../../module";
+import templateUrl from "./message-direct.html";
+import {init, SetModule, Component, MeteorReactive} from "angular2-now";
 
 init();
 SetModule(name);
 @Component({
-    selector: 'chat-message-direct',
+    selector: "chat-message-direct",
     templateUrl: templateUrl,
     transclude: true,
     bind: {
-        message: '=',
-        onRead: '&?'
+        message: "=",
+        onRead: "&?"
     }
 })
 @MeteorReactive

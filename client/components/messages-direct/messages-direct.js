@@ -1,22 +1,22 @@
-import {name} from '/imports/chat/client/module';
-import templateUrl from './messages-direct.html';
-import moment from 'moment';
+import {name} from "../../module";
+import templateUrl from "./messages-direct.html";
+import moment from "moment";
 // direct
-import { markRead } from '../../../lib/direct/methods';
-import { messages } from '../../../lib/direct/selectors';
+import { markRead } from "./../../../api/direct/methods";
+import { messages } from "./../../../api/direct/selectors";
 // messages
-import { Messages } from '../../../lib/messages/collection';
-import { Users } from '../../../lib/users/collection';
-import {init,SetModule, Component, MeteorReactive, LocalInjectables} from 'angular2-now';
+import { Messages } from "./../../../api/messages/collection";
+import { Users } from "./../../../api/users/collection";
+import {init,SetModule, Component, MeteorReactive, LocalInjectables} from "angular2-now";
 
 init();
 SetModule(name);
 @Component({
-    selector: 'chat-messages-direct',
+    selector: "chat-messages-direct",
     templateUrl: templateUrl,
     transclude: true,
     bind: {
-        user: '='
+        user: "="
     }
 })
 @MeteorReactive
@@ -25,8 +25,8 @@ export class ChatMessagesDirectComponent {
     constructor() {
         // mark as loading
         this.loading = true;
-        this.increaseLimit = '1';
-        this.increaseType = 'day';
+        this.increaseLimit = "1";
+        this.increaseType = "day";
         this.dateLimit = moment().subtract(this.increaseLimit, this.increaseType).toDate();
 
         this._setHelpers();
@@ -74,12 +74,12 @@ export class ChatMessagesDirectComponent {
      */
     _subscribeMessages() {
         const vm = this;
-        this.subscribe('chat.messages', () => {
+        this.subscribe("chat.messages", () => {
             this.loading = true;
             return [
-                this.getReactively('user'), // recipient Id
+                this.getReactively("user"), // recipient Id
                 undefined,
-                this.getReactively('dateLimit')
+                this.getReactively("dateLimit")
             ];
         }, {
             onStop(error) {
@@ -101,7 +101,7 @@ export class ChatMessagesDirectComponent {
              * @return {Object} User data
              */
             recipient() {
-                return Users.findOne(this.getReactively('user'));
+                return Users.findOne(this.getReactively("user"));
             },
             /**
              * Get all messages
@@ -109,7 +109,7 @@ export class ChatMessagesDirectComponent {
              */
             messages() {
                 const cursor = Messages.find(
-                    messages(Meteor.userId(), this.getReactively('user')),
+                    messages(Meteor.userId(), this.getReactively("user")),
                     {
                         sort: {
                             createdAt: 1

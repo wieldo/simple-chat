@@ -1,18 +1,16 @@
-import {name} from '/imports/chat/client/module';
-import { message } from '../../../lib/channels/methods';
-import {init,SetModule, Component, LocalInjectables} from 'angular2-now';
+import {name} from "../../module";
+import { message } from "../../../api/channels/methods";
+import {init,SetModule, Component, LocalInjectables} from "angular2-now";
 
 init();
 SetModule(name);
 @Component({
-    selector: 'chat-post-channel',
+    selector: "chat-post-channel",
     bind: {
-        channel: '='
+        channel: "="
     },
-    template: `
-      <chat-post on-message="vm.send(message)"></chat-post>
-    `,
-    providers: ['UsePromise']
+    template: `<chat-post on-message="vm.send(message)"></chat-post>`,
+    providers: ["UsePromise"]
 })
 @LocalInjectables
 export class ChatPostChannelComponent {
@@ -20,7 +18,7 @@ export class ChatPostChannelComponent {
     }
 
     send(text) {
-        console.log('channelId', this.channel);
+        console.log("channelId", this.channel);
         return this.UsePromise.on(message, {
             text,
             channelId: this.channel
@@ -37,6 +35,6 @@ export class ChatPostChannelComponent {
     }
 
     onError(error) {
-        console.log('error', error);
+        console.log("error", error);
     }
   }

@@ -1,24 +1,24 @@
-import {name} from '/imports/chat/client/module';
+import {name} from "../../module";
 import templateUrl from "./post.html";
-import {init,SetModule, Component, LocalInjectables} from 'angular2-now';
+import {init,SetModule, Component, LocalInjectables} from "angular2-now";
 
 init();
 SetModule(name);
 @Component({
-    selector: 'chat-post',
+    selector: "chat-post",
     bind: {
-        onMessage: '&'
+        onMessage: "&"
     },
     templateUrl: templateUrl,
-    providers: ['$element', '$q', '$scope']
+    providers: ["$element", "$q", "$scope"]
 })
 @LocalInjectables
 export class ChatPostComponent {
     constructor() {
-        this.message = '';
+        this.message = "";
 
         // catch every keydown on textarea
-        this.$element.find('#chat-post-message').bind('keydown', (event) => {
+        this.$element.find("#chat-post-message").bind("keydown", (event) => {
             const code = event.keyCode || event.which;
 
             if (code === 13) {
@@ -35,7 +35,7 @@ export class ChatPostComponent {
     }
 
     send() {
-        if (typeof this.message === 'string' && this.message.trim().length) {
+        if (typeof this.message === "string" && this.message.trim().length) {
             this.onMessage({
                 message: this.message
             });
@@ -45,6 +45,6 @@ export class ChatPostComponent {
     }
 
     reset() {
-        this.message = '';
+        this.message = "";
     }
 }
