@@ -1,6 +1,32 @@
 {
-  "globals": {
-    "angular": false,
-    "ValidatedMethod": false
-  }
+    "extends": "eslint:recommended",
+    "parser": "babel-eslint",
+    "ecmaFeatures": {
+        "modules": true
+    },
+    "env": {
+        "browser": true,
+        "es6": true,
+        "node": true,
+        "jquery": true,
+        "meteor": true,
+        "mongo": true,
+        "jasmine": true
+    },
+    "globals": {
+      "inject": false,
+      "angular2now": false,
+      "angular": false,
+      "ValidatedMethod": false
+    },
+    "rules": {
+        "quotes": [2, "double",{"avoidEscape": true, "allowTemplateLiterals": true}],
+        "camelcase": 1,
+        "semi": 1,
+        "indent": [
+            2,
+            4
+        ],
+        "no-console": 0
+    }
 }
